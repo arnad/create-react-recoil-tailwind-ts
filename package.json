@@ -53,5 +53,5 @@
     "webpack-dev-server": "^4.0.0-rc.1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
