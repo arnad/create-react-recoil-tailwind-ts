@@ -4,7 +4,15 @@
   "description": "Template for react app using axios, react-router, recoil and tailwind",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-client": "bash ./etc/generate-client.sh",
+    "serve": "NODE_ENV=development webpack serve --static-directory dist",
+    "build:js": "NODE_ENV=production webpack",
+    "build:css": "NODE_ENV=production postcss tailwind.css -o dist/css/styles.css",
+    "watch:css": "postcss tailwind.css -o dist/css/styles.css --watch",
+    "watch": "npm run serve & npm run watch:css",
+    "build": "npm run generate-client && npm run build:js && npm run build:css",
+    "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
+    "prettify": "prettier -w ."
   },
   "dependencies": {
     "@babel/runtime": "^7.15.3",
